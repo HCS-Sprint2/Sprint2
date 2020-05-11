@@ -1,0 +1,17 @@
+<div class="col-md-6 offset-2">
+  <table class="table table-striped">
+    <tr>
+      <th scope="col">TestName</th>
+      <th scope="col">CentreName</th>
+      <th scope="col">TestId</th>
+    </tr>
+    <tbody>
+      <tr *ngFor="let diagnosticCentre of diagnosticCentres">
+        <td>{{diagnosticCentre.testName}}</td>
+        <td>{{diagnosticCentre.centreName}}</td>
+        <td>{{diagnosticCentre.testId}}</td>
+        <td><button class="btn btn-danger" (click)="deleteTest(diagnosticCentre)"> Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

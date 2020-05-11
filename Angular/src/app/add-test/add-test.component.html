@@ -1,0 +1,43 @@
+<head>
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  </head>
+  <br>
+  <br>
+  <div class="col-md-6 offset-2">
+  
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">
+        <div class="col-md-4 offset-2">
+          Add Test
+        </div>
+      </a>
+    </nav>
+    <br>
+    <br>
+  
+    <form>
+      <div>
+        <label for="centreName">CentreName:</label><br>
+        <!-- dropdown -->
+        <select name="centreName" [(ngModel)]="user.centreName">
+          <option *ngFor="let cl of centersList" value={{cl}}>
+            {{cl}}
+          </option>`
+        </select>
+      </div>
+      <br>
+      <div class="form-group">
+        <div class="col-xs-4"></div>
+  
+        <label for="centreName">TestName:</label>
+        <input type="text" [(ngModel)]="user.testName" placeholder="testName" class="col-md-4" name="testName"
+          class="form-control" id="testName" #testName="ngModel" required name="centreName" class="form-control"
+          id="centreName">
+        <div *ngIf="testName.errors  && testName.dirty && testName.touched" class="alert alert-danger">
+          <div *ngIf="testName.errors.required">Testname required</div>
+        </div>
+      </div>
+      <button class="btn btn-success" (click)="createTest()"> Submit </button>
+    </form>
+  </div>

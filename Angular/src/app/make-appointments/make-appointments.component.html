@@ -1,0 +1,85 @@
+<div class="col-md-6">
+    <h6 style="text-align:center;"> To make an appointment, Please choose a center near you</h6>
+    <br><br>
+    <table style="border:2px solid whitesmoke;margin-left:auto;margin-right:auto;" class="table" *ngIf = "centre != null  else elseBlock"><!---table for displaying centers-->
+        <thead>
+            <tr>
+                <th>Center No. </th>
+                <th>Diagnostic Center Name</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let user of centre">
+            <td> {{user.centreId}} </td>
+            <td> {{user.centreName}} </td>
+            <td>
+                <button class="btn btn-large btn-block btn-primary" value="DiagnosticCenter" (click)="onSelect(user)"> Select </button>
+            </td>
+            </tr>
+    </table>
+    <ng-template #elseBlock>
+        <h4> No centers available right now, please check in later! </h4>
+    </ng-template>
+        
+</div>
+<br>
+<div class="col-md-6">
+<table *ngIf="user != null else elseBlock" class="table" style="border:2px solid whitesmoke;margin-left:auto;margin-right:auto;">
+    <br>
+    <h6 class="center">      The Tests available are </h6>
+    <br>
+    <tr class="w3-light-grey w3-hover-red">
+        <th>Test ID</th>
+        <th>Type of Test</th>
+    </tr>
+    <tr *ngFor="let tester of tests" class="w3-hover-black">
+        <td>{{tester.testId}}</td>
+        <td>{{tester.testName}}</td>
+        <td>
+        <button class="btn btn-large btn-block btn-primary" value="Tests" (click)="onTest(tester)"> Select </button>
+        </td>
+        </tr>
+        </table>
+<ng-template #elseBlock>
+    <h4> Please select a Diagnostic Center to choose a test </h4>
+</ng-template>
+<br>
+<br>
+</div>
+
+<div *ngIf="dateCheck">
+<form>
+    <br>
+    <h6>Choose a Date and Time to confirm your slot></h6>
+    <br>
+
+
+        <div class="col-md-5">    
+        <div class="form-group">
+
+        <input  type="datetime-local" [(ngModel)]="app.dateTimeSlot" name="slot" class="form-control" id="slot" required>
+      </div>
+
+    
+      <button class="center" class="btn btn-success" (click)="onDate()">Confirm this slot</button>
+      <br>
+
+<div *ngIf="userIdCheck">
+    <div class="col-md-5"></div>
+       <form>
+    <div class="form-group">
+        <br>
+        <h6> Confirm your appointment by entering your User ID</h6>
+        <br>
+        <input  type="text" [(ngModel)]="app.userId" name="slot" class="form-control" id="slot" required>
+      </div>
+      
+      <button  class="center" class="btn btn-success" (click)="onConfirm()">Make an Appointment</button>
+      <div *ngIf="confirmation">
+<br>
+        <h4 class="center">Your slot is registered &#9989;</h4><br>
+        <h5>You may check your appointment status in the view appointments section</h5>
+      </div>
+
+    

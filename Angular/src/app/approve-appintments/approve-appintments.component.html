@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="col-md-11">
+    <table class="table" *ngIf = "app != null  else elseBlock"><!---table for displaying appointments-->
+       
+        <thead>
+            <tr>
+                <th>AppointmentNo.</th>
+                <th>UserId</th>
+                <th>Diagnostic Test</th>
+                <th>Diagnostic Center Name</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let apps of app">
+            <td> {{apps.appointmentId}} </td>
+            <td> {{apps.userId}} </td>
+            <td> {{apps.test}} </td>
+            <td> {{apps.center}} </td>
+            <td> {{apps.approved}} </td>
+            <td>
+                <button class="btn btn-large btn-block btn-primary" value="Appointments" (click)="onClick(apps)"> Confirm Appointment </button>
+            <td>
+
+            </tr>
+        </tbody>
+    </table>
+    <ng-template #elseBlock>
+        <h5> No Appointments have been scheduled! </h5>
+    
