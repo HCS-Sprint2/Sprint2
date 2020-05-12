@@ -1,12 +1,49 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
 <div class="container">
-  <h1></h1>
-    <div>
-      User Name : <input type="text" name="username" [(ngModel)]="username">
-      
-      Password : <input type="password" name="password" [(ngModel)]="password">
+
+  <div class="col-md-10 col-md-offset-1 main">
+    <div class="col-md-6 left-side">
+      <h3>Health Care System</h3>
+      <p>We care for your health</p>
+      <br>
+
+
     </div>
-    <button (click)=checkLogin() class="btn btn-success">
-      Login
-    </button>
+    <!--col-sm-6-->
+
+    <div class="col-md-6 right-side">
+      <h3>Login</h3>
+
+      <!--Form with header-->
+      <div class="form">
+
+
+        <div class="form-group">
+          <label for="form2">Your User Name</label>
+          <input type="text" id="form2" name="username" placeholder="Enter user name here" [(ngModel)]="username" class="form-control input-lg">
+        </div>
+        <div class="form-group">
+          <label for="form4">Your password</label>
+          <input type="password" id="form4" name="password" placeholder="Enter your password here" [(ngModel)]="password" class="form-control input-lg">
+        </div>
+        <div class="text-xs-center">
+          <button (click)=checkLogin() class="btn btn-deep-purple">Login</button>
+        </div>
+
+
+      </div>
+      <!--/Form with header-->
+
+    </div>
+    <!--col-sm-6-->
+
+
   </div>
-  
+  <!--col-sm-8-->
+
+</div>
+<!--container-->

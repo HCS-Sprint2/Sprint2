@@ -1,17 +1,45 @@
-<div class="col-md-6 offset-2">
-  <table class="table table-striped">
-    <tr>
-      <th scope="col">TestName</th>
-      <th scope="col">CentreName</th>
-      <th scope="col">TestId</th>
-    </tr>
-    <tbody>
-      <tr *ngFor="let diagnosticCentre of diagnosticCentres">
-        <td>{{diagnosticCentre.testName}}</td>
-        <td>{{diagnosticCentre.centreName}}</td>
-        <td>{{diagnosticCentre.testId}}</td>
-        <td><button class="btn btn-danger" (click)="deleteTest(diagnosticCentre)"> Delete</button></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <br>
+  <div class="col-md-6 offset-3">
+
+    <div class="card">
+      <h4 class="card-header"><label>Available Tests</label></h4>
+      <div class="card-body">
+        <table class="table table-striped"  style=font-size:110%; >
+          <thead>
+            <tr>
+              <th scope="col">Test Name</th>
+              <th scope="col">Center Name</th>
+              <th scope="col">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Test Id</th>
+              <th scope="col">&nbsp;&nbsp;&nbsp;Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let diagnosticCentre of diagnosticCentres">
+              <td>{{diagnosticCentre.testName}}</td>
+              <td>{{diagnosticCentre.centreName}}</td>
+              <td>{{diagnosticCentre.testId}}</td>
+              <td><button class="btn btn-danger" (click)="deleteTest(diagnosticCentre)"> <span
+                class="glyphicon glyphicon-trash"></span> Delete</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card-footer text-muted">
+        *Select Test which you want to delete
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

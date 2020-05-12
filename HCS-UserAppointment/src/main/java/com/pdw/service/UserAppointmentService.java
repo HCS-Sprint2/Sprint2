@@ -44,6 +44,7 @@ public class UserAppointmentService implements UserAppointmentServiceI  {
 
 	@Override
 	public String makeAppointment(Appointment app) {
+		@SuppressWarnings("unused")
 		Appointment updatedApp= appointmentDao.save(app);
 		
 		return "Appointment is registered, please await for confirmation";

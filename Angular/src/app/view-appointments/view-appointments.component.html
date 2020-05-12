@@ -1,29 +1,48 @@
-<div class="container">
-    <div class="col-md-10">
+<html>
 
-    <table class="table" *ngIf = "app != null  else elseBlock"><!---table for displaying appointments-->
-       
-        <thead>
-            <tr>
-                <th>Appointment No.</th>
-                <th>User Id</th>
-                <th>Diagnostic Test</th>
-                <th>Diagnostic Center Name</th>
-                <th>Status</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor = "let app of app">
-            <td> {{app.appointmentId}} </td>
-            <td> {{app.userId}} </td>
-            <td> {{app.test}} </td>
-            <td> {{app.center}} </td>
-            <td> {{app.approved}} </td>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
 
-            </tr>
-        </tbody>
-    </table>
-    <ng-template #elseBlock>
-        <h5> You haven't scheduled any Appointments! Please go to the make appointment page to schedule one</h5>
-    
+<body>
+    <br>
+    <div class="col-md-9 offset-1">
+        <div class="card">
+            <h4 class="card-header"><label>&nbsp;&nbsp;All Appointments are listed
+                </label></h4>
+            <div class="card-body">
+                <table class="table" style=font-size:115%; *ngIf="app != null  else elseBlock">
+
+                    <thead>
+                        <tr>
+                            <th scope='col'>Appointment No.</th>
+                            <th scope='col'>User Id</th>
+                            <th scope='col'>Diagnostic Test</th>
+                            <th scope='col'>Diagnostic Center Name</th>
+                            <th scope='col'>Status</th>
+                            <th scope='col'></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let app of app">
+                            <td> {{app.appointmentId}} </td>
+                            <td> {{app.userId}} </td>
+                            <td> {{app.test}} </td>
+                            <td> {{app.center}} </td>
+                            <td> {{app.approved}} </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <ng-template #elseBlock>
+                <h5> You haven't scheduled any Appointments! Please go to the make appointment page to schedule one</h5>
+            </ng-template>
+        </div>
+    </div>
+</body>
+
+</html>

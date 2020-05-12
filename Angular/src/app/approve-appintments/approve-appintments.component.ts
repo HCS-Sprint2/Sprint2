@@ -46,7 +46,7 @@ statusCheck(){
   if (this.app.approved=false){
     status="awaiting confirmation"
 }else {
-status="Your Appointment is scheduled!"
+status="Appointment confirmed!"
 }
 }
 

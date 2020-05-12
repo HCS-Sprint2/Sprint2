@@ -71,7 +71,8 @@ export class MakeAppointmentsComponent implements OnInit {
           this.dateCheck=false;
           this.userIdCheck=false;
           this.confirmation=true;
-       alert("Appointment added successfully! Please check View Appointments");
+       alert("Appointment successfull!");
+       alert("Check view appointments for your appointment status")
         }else{
           alert("user ID already exists!! This user already made an appointment");
         }

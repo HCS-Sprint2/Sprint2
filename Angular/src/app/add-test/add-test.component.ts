@@ -19,7 +19,10 @@ export class AddTestComponent implements OnInit {
      this.getCenterNames();
   }
   createTest(): void {
-
+    if(this.user.testName==""){
+      alert("Test Name can't be empty")
+    }
+else{
     this.httpClientService.createTest(this.user)
         .subscribe(data => {
           if(data){
@@ -31,7 +34,7 @@ export class AddTestComponent implements OnInit {
 
   };
   
-
+  }
   getCenterNames(): any {
 
     let cntname = new Array();
