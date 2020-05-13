@@ -36,6 +36,7 @@ public class UserAppointmentController {
 	@GetMapping("/FetchTestList/{centerId}")
 	public List<Test> getTestList(@PathVariable("centerId") String centerId) {
 		List<Test> dCenter = userAppointmnetS.TestsList(centerId);
+		System.out.println(dCenter);
 		return dCenter;
 	}
 

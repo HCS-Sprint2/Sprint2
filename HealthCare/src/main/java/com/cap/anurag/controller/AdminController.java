@@ -51,7 +51,7 @@ public class AdminController {
 	@DeleteMapping("/delete/{centreId}")
 	public ResponseEntity<Boolean> deleteCentreById(@PathVariable("centreId") String centreId) {
 		if(centreId==null){
-            throw new RuntimeException("DiagnosticCentre is null");
+            throw new RuntimeException("Centre id is null");
         }
 		Boolean data = service.getDetails(centreId);
 		if (Boolean.TRUE.equals(data)) {

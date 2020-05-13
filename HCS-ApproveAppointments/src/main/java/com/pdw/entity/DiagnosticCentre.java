@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "diagnostic_centre")
+@Table(name = "diagnostic_centres12")
 public class DiagnosticCentre {
 	@Id
 	@Column(length=10)
@@ -62,9 +62,6 @@ public class DiagnosticCentre {
 		return "DiagnosticCentre [centreId=" + centreId + ", centreName=" + centreName + ", listOfTests=" + listOfTests
 				+ ", appointmentList=" + appointmentList + "]";
 	}
-	public DiagnosticCentre(){
-	}
-
 
 }
 

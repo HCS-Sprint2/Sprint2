@@ -20,6 +20,7 @@ public class AdminViewService implements AdminViewServiceI{
 		return appList;
 	}
 
+	@SuppressWarnings("unused")
 	@Override
 	public String approveAppointment(Appointment app) {
 		Appointment updatedApp= appointmentDao.save(app);

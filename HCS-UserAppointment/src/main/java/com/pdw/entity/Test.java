@@ -2,18 +2,13 @@ package com.pdw.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.GenericGenerator;
-
 @Entity
-@Table(name = "test_s6")
+@Table(name = "test_s12")
 public class Test {
 	@Id 
-	@GeneratedValue(generator = "system-uuid")
-	@GenericGenerator(name = "system-uuid", strategy = "uuid")
 	private String testId;
 	@Column(length=20)
 	private String testName;
