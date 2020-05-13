@@ -11,7 +11,7 @@ import com.pdw.entity.Test;
 public interface UserAppointmentServiceI {
 	List<DiagnosticCentre> DiagnosticCenterList();
 	List<Test> TestsList(String centreId);
-	String makeAppointment(Appointment app);
+	String makeAppointment(Appointment appointment);
     Boolean userIdFound(String userId);
 	List<Appointment> AppointmentList();
 

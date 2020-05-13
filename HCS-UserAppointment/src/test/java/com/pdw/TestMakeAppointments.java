@@ -13,6 +13,9 @@ import com.pdw.entity.Appointment;
 
 import junit.framework.Assert;
 
+//Test to check if the appointment details are not null values and are being updated in the
+//appointment list table
+
 @SuppressWarnings("deprecation")
 public class TestMakeAppointments {
 	@Test

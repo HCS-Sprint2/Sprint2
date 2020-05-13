@@ -18,6 +18,7 @@ public class DiagnosticCentre {
 	@Column(length=10)
 	private String centreId;
 	private String centreName;
+	//One to many relation with test class 
 	@OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "test_c_id")
 	private List<Test> listOfTests = new ArrayList<>();

@@ -7,6 +7,6 @@ import com.pdw.entity.Appointment;
 public interface AdminViewServiceI {
 	List<Appointment> AppointmentList();
 
-	String approveAppointment(Appointment app);
+	String approveAppointment(Appointment appointment);
 
 }

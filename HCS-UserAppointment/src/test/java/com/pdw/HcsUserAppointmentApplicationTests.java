@@ -18,6 +18,7 @@ import junit.framework.Assert;
 @SpringBootTest
 public class HcsUserAppointmentApplicationTests {
  
+	//test to check fetching details of the diagnostic centers list
 	@Test
 	public void CenterListSuccess() throws URISyntaxException{
 		RestTemplate rest=new RestTemplate();
@@ -28,7 +29,6 @@ public class HcsUserAppointmentApplicationTests {
 		DiagnosticCentre[] diagnosticCenter=result.getBody();
 		Assert.assertEquals(200, result.getStatusCodeValue());
 		Assert.assertNotNull(diagnosticCenter);
-	
 	}
 	
 	@Test

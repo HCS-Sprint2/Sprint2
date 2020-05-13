@@ -15,14 +15,17 @@ import com.pdw.service.AdminViewServiceI;
 @RequestMapping("/Admin")
 @CrossOrigin("http://localhost:4200")
 public class ApproveAppointmentsController {
+	//Controller class fetches the method from service interface which enables the admin to
+	//approve the scheduled appointments by updating the appointment object
+	
+	
 	@Autowired    // service interface object
 	AdminViewServiceI adminViewService;
 	
 	 @PutMapping("/approveAppointment")
-	 public String updateAppointment(@RequestBody Appointment app) {
-		 System.out.println(app.toString());
-		 String updateMsg =  adminViewService.approveAppointment(app);
-		 return updateMsg;
+	 public String updateAppointment(@RequestBody Appointment appointment) {
+		 String updateMessage =  adminViewService.approveAppointment(appointment);
+		 return updateMessage;
 	 }
 	 
 	 

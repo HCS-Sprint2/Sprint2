@@ -15,21 +15,20 @@ import com.pdw.entity.Test;
 public class UserAppointmentService implements UserAppointmentServiceI  {
 
 	
-	@Autowired
-	TestDaoI testDao;
 	
 	@Autowired
 	AppointmentDaoI appointmentDao;
 	@Autowired
 	CenterDaoI centerListDao;
 	
+	//Fetches all the diagnostic centers from the centers table to display by using find all method
 	@Override
 	public List<DiagnosticCentre> DiagnosticCenterList() {
 		List<DiagnosticCentre> CenterList=centerListDao.findAll();
 		return CenterList;
 	}
 
-	
+	//Fetching all the Tests available from the respective selected diagnostic Centers
 	@Override
 	public List<Test> TestsList(String centreId) {
 		List<Test> testList=centerListDao.getOne(centreId).getListOfTests();
@@ -42,10 +41,10 @@ public class UserAppointmentService implements UserAppointmentServiceI  {
 	return value;
 	}
 
+	//Creating a new appointment 
 	@Override
-	public String makeAppointment(Appointment app) {
-		@SuppressWarnings("unused")
-		Appointment updatedApp= appointmentDao.save(app);
+	public String makeAppointment(Appointment appointment) {
+		 appointmentDao.save(appointment);
 		
 		return "Appointment is registered, please await for confirmation";
 	}
@@ -53,9 +52,9 @@ public class UserAppointmentService implements UserAppointmentServiceI  {
 
 	@Override
 	public List<Appointment> AppointmentList() {
-		List<Appointment> appList=appointmentDao.findAll(); 
-		// using data jpa find all method to get the values
-		return appList;
+		List<Appointment> appointmentList=appointmentDao.findAll(); 
+		// using data jpa find all method to get the details of appointments made by the users
+		return appointmentList;
 	}
 
 

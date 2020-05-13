@@ -16,6 +16,10 @@ import com.pdw.entity.Appointment;
 
 import junit.framework.Assert;
 
+//Test to check updated values of the appointment table by approving the new appointments 
+//made by the users, same should be updated and reflected in the appointments table for the users to
+//check their appointment status
+
 @SuppressWarnings("deprecation")
 @RunWith(SpringRunner.class)
 @SpringBootTest

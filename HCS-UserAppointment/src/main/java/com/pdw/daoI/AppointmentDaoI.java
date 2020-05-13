@@ -11,6 +11,7 @@ import com.pdw.entity.Appointment;
 @Repository
 public interface AppointmentDaoI extends JpaRepository<Appointment,String>{
 
+//Custom query to check for duplicate user Ids while making an appointment
 	@Query("select m.userId from Appointment m where m.userId=?1")
 	public List<String> checkUserIdEXists(String userId);
 }
