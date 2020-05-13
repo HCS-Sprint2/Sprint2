@@ -36,10 +36,9 @@
             <input type="text" [(ngModel)]="user.testName" placeholder="Enter Test Name" name="testName"
               class="form-control" id="testName" #testName="ngModel" required name="centreName"
               class="form-control col-md-8" id="centreName">
-            <div *ngIf="testName.errors  && testName.dirty " class="alert alert-danger">
-              <div *ngIf="testName.errors.required">Testname required</div>
-            </div>
-          </div>
+
+              
+         </div>
           <br><br>
           <button class="btn btn-primary" style="font-size:16px" (click)="createTest()"> Submit <i
               class="fa fa-medkit"></i></button>

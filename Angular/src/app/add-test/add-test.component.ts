@@ -19,8 +19,8 @@ export class AddTestComponent implements OnInit {
      this.getCenterNames();
   }
   createTest(): void {
-    if(this.user.testName==""){
-      alert("Test Name can't be empty")
+    if(this.user.testName=="" || this.user.centreName==""){
+      alert("Test Name and Center Name can't be empty")
     }
 else{
     this.httpClientService.createTest(this.user)
