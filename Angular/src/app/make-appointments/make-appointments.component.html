@@ -28,7 +28,7 @@
 <br>
 <div class="col-md-6 offset-3">
     <br>
-    <h6 class="center">  Available Tests </h6>
+    <h6 class="center"> Available Tests </h6>
     <br>
     <table class="table table-hover table-bordered" *ngIf="user != null else elseBlock">
         <thead class="thead-light">
@@ -64,7 +64,7 @@
             <div class="form-group">
 
                 <input type="datetime-local" [(ngModel)]="app.dateTimeSlot" name="slot" class="form-control " id="slot">
-                
+
             </div>
 
 
@@ -72,22 +72,29 @@
             <br>
 
             <div *ngIf="userIdCheck">
-                <div class="col-md-5"></div>
-                <form>
-                    <div class="form-group">
-                        <br>
-                        <h6> Confirm your appointment by entering your User ID</h6>
-                        <br>
-                        <input type="text" [(ngModel)]="app.userId" name="slot" class="form-control" id="slot" required>
-                    </div>
+                    <form>
+                        <div class="form-group">
+                            <br>
+                            <h6> Confirm your appointment by entering your Phone number</h6>
+                            <br>
+                            <input type="text" pattern=[0-9]* minlength="10" maxlength="10" [(ngModel)]="app.userId" name="slot" class="form-control" name="contactNumber" class="form-control" id="contactNumber" #contactNumber="ngModel" required>
+                                <div *ngIf="contactNumber.errors  && contactNumber.dirty && contactNumber.touched" class="alert alert-danger">
+                                       <div *ngIf="contactNumber.errors.required">contactNumber required</div>
+                                       <div *ngIf="contactNumber.errors.minlength">contactNumber should be 10 digits</div>
+                                <div [hidden]="!contactNumber.errors.pattern"> & No charecters are allowed</div>
+                                   </div>
+                        </div>
 
-                    <button class="center" class="btn btn-success" (click)="onConfirm()">Make an Appointment</button>
-                    <div *ngIf="confirmation">
-                        <br>
-                        <h4 class="center">Your slot is registered &#9989;</h4><br>
-                        <h5>You may check your appointment status in the view appointments section</h5>
-                    </div>
-                </form>
+
+                        <button class="center" class="btn btn-success" (click)="onConfirm()">Make an
+                            Appointment</button>
+                        <div *ngIf="confirmation">
+                            <br>
+                            <h4 class="center">Your slot is registered &#9989;</h4><br>
+                            <h5>You may check your appointment status in the view appointments section</h5>
+                        </div>
+                    </form>
+                
             </div>
         </div>
     </form>

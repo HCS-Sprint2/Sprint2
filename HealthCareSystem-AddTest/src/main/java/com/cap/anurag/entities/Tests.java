@@ -10,15 +10,15 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-@Table(name = "test_s9")
+@Table(name = "test_s12")
 public class Tests {
 	@Id
 	@GeneratedValue(generator = "system-uuid")
-	@GenericGenerator(name = "system-uuid", strategy = "uuid2")
+	@GenericGenerator(name = "system-uuid", strategy = "uuid")
 	private String testId;
 	private String testName;
 	@ManyToOne
-	@JoinColumn(name = "dgcentre_id")
+	@JoinColumn(name = "test_c_id")
 	private DiagnosticCentre centre;
 
 	private String centreName;

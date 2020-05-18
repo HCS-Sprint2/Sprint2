@@ -22,5 +22,7 @@ public interface AdminService {
 
 	void deleteTestById(String testId);
 
+	//Tests addnewTest(Tests test);
+
 
 }

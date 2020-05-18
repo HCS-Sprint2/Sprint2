@@ -26,7 +26,7 @@
           <tbody>
             <tr *ngFor="let diagnosticCentre of diagnosticCentres">
               <td>{{diagnosticCentre.testName}}</td>
-              <td>{{diagnosticCentre.centreName}}</td>
+              <td>{{diagnosticCentre.centre.centreName}}</td>
               <td>{{diagnosticCentre.testId}}</td>
               <td><button class="btn btn-danger" (click)="deleteTest(diagnosticCentre)"> <span
                 class="glyphicon glyphicon-trash"></span> Delete</button></td>

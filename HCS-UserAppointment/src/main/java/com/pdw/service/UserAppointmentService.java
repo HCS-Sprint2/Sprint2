@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.pdw.daoI.AppointmentDaoI;
 import com.pdw.daoI.CenterDaoI;
-import com.pdw.daoI.TestDaoI;
 import com.pdw.entity.Appointment;
 import com.pdw.entity.DiagnosticCentre;
 import com.pdw.entity.Test;

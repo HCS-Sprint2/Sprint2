@@ -29,10 +29,12 @@ import com.cap.anurag.service.AdminService;
 public class AdminController {
 	@Autowired
 	AdminService service;
-	private Random rand = new Random();
+	private Random rand = new Random();	
 
+	
 	@PostMapping("/create")
 	public ResponseEntity<Boolean> create(@RequestBody(required=false) Tests test) {
+		System.out.println(test);
 		if(test == null) {
 			throw new RuntimeException("TestName should not be null");
 		}
@@ -40,13 +42,13 @@ public class AdminController {
 
 		Tests test1 = null;
 
-		DiagnosticCentre a = service.findByCentreName(test.getCentre().getCentreName());
-		if (a != null) {
-			Optional<Tests> testEntity = service.findBycentreNameAndTestName(a.getCentreName(), test.getTestName());
+		DiagnosticCentre center = service.findByCentreName(test.getCentre().getCentreName());
+		if (center != null) {
+			Optional<Tests> testEntity = service.findBycentreNameAndTestName(center.getCentreName(), test.getTestName());
 			if (testEntity.isPresent()) {
 				throw new RecordFoundException("TestName found");
 			}
-			test1 = new Tests(test.getTestName(), a);
+			test1 = new Tests(test.getTestName(), center);
 		} else {
 			DiagnosticCentre centre = new DiagnosticCentre(test.getCentre().getCentreName());
 			service.save(centre);
@@ -69,6 +71,7 @@ public class AdminController {
 	@GetMapping("/find")
 	public ResponseEntity<List<Tests>> getTests() {
 		List<Tests> list = service.getTests();
+		System.out.println(list);
 		return new ResponseEntity<>(list, new HttpHeaders(), HttpStatus.OK);
 
 	}
@@ -81,7 +84,6 @@ public class AdminController {
 
 	}
 	
-
 	@ExceptionHandler(RecordFoundException.class)
 	public ResponseEntity<Boolean> userNotFound(RecordFoundException e) {
 		return new ResponseEntity<>(false, HttpStatus.OK);

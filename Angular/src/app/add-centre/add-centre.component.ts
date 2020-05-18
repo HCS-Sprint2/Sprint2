@@ -6,7 +6,7 @@ import { HttpClientService, DiagnosticCentre } from '../service.service';
   styleUrls: ['./add-centre.component.css']
 })
 export class AddCentreComponent implements OnInit {
-  result:any;
+  result: any;
   user: DiagnosticCentre = new DiagnosticCentre("", "", []);
   constructor(
     private httpClientService: HttpClientService
@@ -19,26 +19,11 @@ export class AddCentreComponent implements OnInit {
       window.alert("Please enter CentreName");
     }
     else {
-      this.user.centreId = "Predefined"
-      this.user.listOfTests = [
-        {
-          testId: "ad",
-          testName: "blood group"
-        },
-        {
-          testId: "ad",
-          testName: "blood sugar"
-        },
-        {
-          testId: "ad",
-          testName: "blood pressure"
-        }
-      ]
       this.httpClientService.createcentre(this.user)
         .subscribe(data => {
-          if(data){
-          alert("Centre added successfully.");
-          }else{
+          if (data) {
+            alert("Centre added successfully.");
+          } else {
             alert("Centre Name Already exist!!");
           }
         });

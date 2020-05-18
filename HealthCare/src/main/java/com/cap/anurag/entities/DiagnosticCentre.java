@@ -24,6 +24,11 @@ public class DiagnosticCentre {
 	@OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "appointment_c_id")
 	private List<Appointment> appointmentList = new ArrayList<>();
+	
+	public void addTest(Test test) {
+		listOfTests.add(test);
+        test.setDiagnosticCentre(this);
+    }
 
 	public List<Test> getListOfTests() {
 		return listOfTests;

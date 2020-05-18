@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -17,7 +18,12 @@ public class Test {
 	private String testId;
 	@Column(length = 20)
 	private String testName;
+	@ManyToOne
+    private DiagnosticCentre diagnosticCentre;
 
+	public void setDiagnosticCentre(DiagnosticCentre diagnosticCentre) {
+		this.diagnosticCentre = diagnosticCentre;
+	}
 	public String getTestId() {
 		return testId;
 	}
@@ -38,4 +44,5 @@ public class Test {
 	public String toString() {
 		return "Test [testId=" + testId + ", testName=" + testName + "]";
 	}
+
 }

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Entity
-@Table(name = "diagnostic_centres9")
+@Table(name = "diagnostic_centres12")
 public class DiagnosticCentre {
 	@Id
 	@GeneratedValue(generator = "system-uuid")

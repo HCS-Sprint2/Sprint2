@@ -26,6 +26,7 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public Tests addTest(Tests test) {
 		return dao.save(test);
+				
 	}
 
 	@Override
@@ -61,5 +62,6 @@ public class AdminServiceImpl implements AdminService {
 		dao.delete(testId);
 		
 	}
-
+	
+	
 }

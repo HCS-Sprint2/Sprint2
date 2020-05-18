@@ -60,23 +60,24 @@ export class MakeAppointmentsComponent implements OnInit {
   }
 
   onConfirm() {
-
-    if (this.app.userId == "") {
-      window.alert("Please enter a valid userId");
-
-    } else {
+    console.log(this.app.userId.slice(0,1))
+    console.log(this.app.userId.length)
+    if (this.app.userId == "" || this.app.userId.length != 10 || this.app.userId.slice(0,1) != '9') {
+      window.alert("please enter a valid Phone number")
+    }
+    else { 
       this.appService.makeAppointment(this.app)
-      .subscribe(data => {
-        if(data){
-          this.dateCheck=false;
-          this.userIdCheck=false;
-          this.confirmation=true;
-       alert("Appointment successfull!");
-       alert("Check view appointments for your appointment status")
-        }else{
-          alert("user ID already exists!! This user already made an appointment");
-        }
-      });
+        .subscribe(data => {
+          if (data) {
+            this.dateCheck = false;
+            this.userIdCheck = false;
+            this.confirmation = true;
+            alert("Appointment successfull!");
+            alert("Check view appointments for your appointment status")
+          } else {
+            alert("user ID already exists!! This user already made an appointment");
+          }
+        });
     }
   }
 
